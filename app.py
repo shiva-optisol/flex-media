@@ -4,8 +4,8 @@ from gpt_researcher import GPTResearcher
 import os
 from dotenv import load_dotenv
 load_dotenv()
-os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
-os.environ['TAVILY_API_KEY'] = os.getenv('TAVILY_API_KEY')
+os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]
+os.environ['TAVILY_API_KEY'] = st.secrets["TAVILY_API_KEY"]
 # Function to get report from the backend
 async def get_report(query: str, report_type: str) -> str:
     researcher = GPTResearcher(query, report_type)
